@@ -10,6 +10,12 @@ public class CheckboxQuestion extends Question{
     }
 
     @Override
+    public void showQuestion(){
+        super.showQuestion();
+        System.out.println(" Enter multiple answers separated by commas.");
+    }
+
+    @Override
     public boolean checkIfAnswerIsCorrect(Object answer) {
 
         ArrayList<String> castedAnswers = new ArrayList<>(Arrays.asList(((String) answer).split(","))
@@ -23,4 +29,6 @@ public class CheckboxQuestion extends Question{
         }
         return true;
     }
+
+
 }

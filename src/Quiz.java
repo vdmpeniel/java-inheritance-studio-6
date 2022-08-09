@@ -14,9 +14,6 @@ public class Quiz {
         for(Question question : quizQuestions){
             question.showQuestion();
             question.showAllPossibleAnswers();
-            if(question.getQuestionType().equals("Checkbox")){
-                System.out.println(" Enter multiple answers separated by commas.");
-            }
             quizMap.put(question, getInputAnswer());
         }
         scanner.close();

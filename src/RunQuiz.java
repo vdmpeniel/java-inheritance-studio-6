@@ -54,7 +54,6 @@ public class RunQuiz {
 
 
 
-
         List questionList = new ArrayList(){{
             add(question1);
             add(question2);
