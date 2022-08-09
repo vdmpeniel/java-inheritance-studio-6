@@ -4,16 +4,18 @@ public abstract class Question {
     private String question;
     private String questionType;
     private Integer questionValue;
+    private String inputInstructions;
     private List<String> possibleAnswers;
     private Object correctAnswer;
 
 
-    public Question(String question, String questionType, Integer questionValue, List<String> possibleAnswers, Object correctAnswer){
+    public Question(String question, Integer questionValue, List<String> possibleAnswers, Object correctAnswer){
         this.question = question;
-        this.questionType = questionType;
         this.questionValue = questionValue;
+        this.inputInstructions = "N/A";
         this.possibleAnswers = possibleAnswers;
         this.correctAnswer = correctAnswer;
+
     }
 
     public String getQuestion() {
@@ -36,6 +38,14 @@ public abstract class Question {
 
     public void setQuestionValue(Integer questionValue) { this.questionValue = questionValue; }
 
+    public String getInputInstructions() {
+        return inputInstructions;
+    }
+
+    public void setInputInstructions(String inputInstructions) {
+        this.inputInstructions = inputInstructions;
+    }
+
     public List<String> getPossibleAnswers() {
         return possibleAnswers;
     }
@@ -53,8 +63,10 @@ public abstract class Question {
     };
 
     public void showQuestion(){
+        System.out.println("............................................");
         System.out.println(questionType);
         System.out.println("Question: " + question);
+        System.out.println("-> " + inputInstructions + ":");
     }
 
     public void showAllPossibleAnswers(){
@@ -62,6 +74,12 @@ public abstract class Question {
     }
 
     public abstract boolean checkIfAnswerIsCorrect(Object answer);
+
+    public boolean validateAnswer(Object answer){
+        return (answer instanceof String)
+                && !((String) answer).isEmpty()
+                && this.getPossibleAnswers().contains(answer);
+    };
 
 
 

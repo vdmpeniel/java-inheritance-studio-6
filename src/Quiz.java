@@ -12,12 +12,17 @@ public class Quiz {
 
     public void runQuiz(){
         for(Question question : quizQuestions){
-            System.out.println(".................................");
             question.showQuestion();
             question.showAllPossibleAnswers();
-            quizMap.put(question, getInputAnswer());
+            quizMap.put(question, getInputAnswer(question));
         }
         scanner.close();
+    }
+
+    private boolean askForNewInput(Question question){
+        System.out.println("Your input was not valid.");
+        System.out.println("Please. " + question.getInputInstructions());
+        return true;
     }
 
     public int gradeQuiz(){
@@ -30,8 +35,11 @@ public class Quiz {
         return grade;
     }
 
-    private String getInputAnswer(){
-        String input = scanner.nextLine();
+    private String getInputAnswer(Question question){
+        String input;
+        do {
+            input = scanner.nextLine();
+        } while(!question.validateAnswer(input) && askForNewInput(question));
         return input;
     }
 }

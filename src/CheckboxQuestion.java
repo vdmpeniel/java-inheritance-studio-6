@@ -6,7 +6,9 @@ import java.util.stream.Collectors;
 
 public class CheckboxQuestion extends Question{
     public CheckboxQuestion(String question, Integer questionValue, List<String> possibleAnswers, Object correctAnswer){
-        super(question, "Checkbox", questionValue, possibleAnswers, correctAnswer);
+        super(question, questionValue, possibleAnswers, correctAnswer);
+        this.setQuestionType("Checkbox");
+        this.setInputInstructions("Type all that apply separated by commas");
     }
 
     @Override
@@ -28,6 +30,17 @@ public class CheckboxQuestion extends Question{
             if(!castedAnswers.contains(ans.toLowerCase())){ return false;}
         }
         return true;
+        //return !castedCorrectAnswers.stream().allMatch(ans -> !castedAnswers.contains(ans.toLowerCase()));
+    }
+
+    @Override
+    public boolean validateAnswer(Object answer){
+        return super.validateAnswer(answer)
+                && (new ArrayList<>(Arrays.asList(String.valueOf(answer).split(",")))).stream()
+                .allMatch(ans -> this.getPossibleAnswers().stream()
+                            .map(item -> ((String) item).toLowerCase())
+                            .toList().contains(String.valueOf(ans).trim())
+                );
     }
 
 
