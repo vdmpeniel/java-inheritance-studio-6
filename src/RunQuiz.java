@@ -57,10 +57,21 @@ public class RunQuiz {
 
 
 
+
+        String question4CorrectAnswer = "Hola!";
+        Question question4 = new ShortAnswerQuestion(
+                "How you say Hello! in Spanish",
+                10,
+                question4CorrectAnswer
+        );
+
+
+
         List questionList = new ArrayList(){{
             //add(question1);
             //add(question2);
-            add(question3);
+            //add(question3);
+            add(question4);
         }};
         Quiz myQuiz = new Quiz(questionList);
         myQuiz.runQuiz();

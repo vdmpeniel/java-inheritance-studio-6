@@ -76,9 +76,7 @@ public abstract class Question {
     public abstract boolean checkIfAnswerIsCorrect(Object answer);
 
     public boolean validateAnswer(Object answer){
-        return (answer instanceof String)
-                && !((String) answer).isEmpty()
-                && this.getPossibleAnswers().contains(answer);
+        return (answer instanceof String) && !((String) answer).isEmpty();
     };
 
 
