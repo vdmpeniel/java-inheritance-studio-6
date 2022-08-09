@@ -5,14 +5,14 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class CheckboxQuestion extends Question{
-    public CheckboxQuestion(String question, List<String> possibleAnswers, Object correctAnswer){
-        super(question, "Checkbox", possibleAnswers, correctAnswer);
+    public CheckboxQuestion(String question, Integer questionValue, List<String> possibleAnswers, Object correctAnswer){
+        super(question, "Checkbox", questionValue, possibleAnswers, correctAnswer);
     }
 
     @Override
     public void showQuestion(){
         super.showQuestion();
-        System.out.println(" Enter multiple answers separated by commas.");
+        System.out.println("-> Enter multiple answers separated by commas.");
     }
 
     @Override

@@ -3,12 +3,15 @@ import java.util.List;
 public abstract class Question {
     private String question;
     private String questionType;
+    private Integer questionValue;
     private List<String> possibleAnswers;
     private Object correctAnswer;
 
-    public Question(String question, String questionType, List<String> possibleAnswers, Object correctAnswer){
+
+    public Question(String question, String questionType, Integer questionValue, List<String> possibleAnswers, Object correctAnswer){
         this.question = question;
         this.questionType = questionType;
+        this.questionValue = questionValue;
         this.possibleAnswers = possibleAnswers;
         this.correctAnswer = correctAnswer;
     }
@@ -28,6 +31,10 @@ public abstract class Question {
     public void setQuestionType(String questionType) {
         this.questionType = questionType;
     }
+
+    public Integer getQuestionValue() { return questionValue; }
+
+    public void setQuestionValue(Integer questionValue) { this.questionValue = questionValue; }
 
     public List<String> getPossibleAnswers() {
         return possibleAnswers;

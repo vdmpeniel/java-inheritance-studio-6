@@ -1,8 +1,8 @@
 import java.util.List;
 
 public class TrueOrFalseQuestion extends Question{
-    public TrueOrFalseQuestion(String question, List<String> possibleAnswers, Object correctAnswer){
-        super(question, "True or False", possibleAnswers, correctAnswer);
+    public TrueOrFalseQuestion(String question, Integer questionValue, List<String> possibleAnswers, Object correctAnswer){
+        super(question, "True or False", questionValue, possibleAnswers, correctAnswer);
     }
 
     @Override

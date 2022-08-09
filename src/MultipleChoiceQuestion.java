@@ -2,8 +2,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class MultipleChoiceQuestion extends Question{
-    public MultipleChoiceQuestion(String question, List<String> possibleAnswers, Object correctAnswer){
-        super(question, "Multiple Choice", possibleAnswers, correctAnswer);
+    public MultipleChoiceQuestion(String question, Integer questionValue, List<String> possibleAnswers, Object correctAnswer){
+        super(question, "Multiple Choice", questionValue, possibleAnswers, correctAnswer);
     }
 
     @Override

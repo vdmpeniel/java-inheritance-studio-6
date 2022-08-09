@@ -12,6 +12,7 @@ public class RunQuiz {
 
         Question question1 = new MultipleChoiceQuestion(
                 "Which one is not a real programming language?",
+                15,
                 question1Answers,
                 "Boxer"
         );
@@ -26,6 +27,7 @@ public class RunQuiz {
         }};
         Question question2 = new TrueOrFalseQuestion(
                 "Is Java the easiest language ever?",
+                5,
                 question2Answers,
                 false
         );
@@ -48,6 +50,7 @@ public class RunQuiz {
 
         Question question3 = new CheckboxQuestion(
                 "Which of the following are linux distributions",
+                10,
                 question3Answers,
                 question3CorrectAnswers
         );
@@ -63,7 +66,7 @@ public class RunQuiz {
         myQuiz.runQuiz();
 
         System.out.println("---------------------------------");
-        System.out.println(myQuiz.gradeQuiz());
+        System.out.println("Quiz Grade: " + myQuiz.gradeQuiz());
 
 
     }

@@ -12,6 +12,7 @@ public class Quiz {
 
     public void runQuiz(){
         for(Question question : quizQuestions){
+            System.out.println(".................................");
             question.showQuestion();
             question.showAllPossibleAnswers();
             quizMap.put(question, getInputAnswer());
@@ -20,13 +21,13 @@ public class Quiz {
     }
 
     public int gradeQuiz(){
-        int correctCount = 0;
+        int grade = 0;
         for(Question question : quizQuestions){
             if(question.checkIfAnswerIsCorrect(quizMap.get(question))){
-                correctCount++;
+                grade += question.getQuestionValue();
             }
         }
-        return correctCount;
+        return grade;
     }
 
     private String getInputAnswer(){
