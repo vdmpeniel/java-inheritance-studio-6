@@ -16,6 +16,6 @@ public class MultipleChoiceQuestion extends Question{
     @Override
     public boolean validateAnswer(Object answer){
         return super.validateAnswer(answer)
-                && this.getPossibleAnswers().contains(answer);
+                && this.getPossibleAnswers().stream().map(ans -> ans.toLowerCase()).toList().contains(answer.toString().toLowerCase());
     };
 }

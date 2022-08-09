@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TrueOrFalseQuestion extends Question{
@@ -15,6 +17,6 @@ public class TrueOrFalseQuestion extends Question{
     @Override
     public boolean validateAnswer(Object answer){
         return super.validateAnswer(answer)
-                && this.getPossibleAnswers().contains(answer);
+                && Arrays.asList("true", "false").contains(answer.toString().toLowerCase());
     };
 }

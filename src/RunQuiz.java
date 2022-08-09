@@ -34,6 +34,8 @@ public class RunQuiz {
 
 
 
+
+
         List question3Answers = new ArrayList<>(){{
             add("Ubuntu");
             add("Kali");
@@ -46,14 +48,13 @@ public class RunQuiz {
             add("Kali");
             add("Fedora");
         }};
-
-
         Question question3 = new CheckboxQuestion(
                 "Which of the following are linux distributions",
                 10,
                 question3Answers,
                 question3CorrectAnswers
         );
+
 
 
 
@@ -65,13 +66,23 @@ public class RunQuiz {
                 question4CorrectAnswer
         );
 
+        Question question5 = new ParagraphQuestion(
+                "How you say Hello! in Spanish",
+                15,
+                question4CorrectAnswer
+        );
+
+
+
+
 
 
         List questionList = new ArrayList(){{
-            //add(question1);
-            //add(question2);
-            //add(question3);
-            add(question4);
+//            add(question1);
+//            add(question2);
+//            add(question3);
+//            add(question4);
+            add(question5);
         }};
         Quiz myQuiz = new Quiz(questionList);
         myQuiz.runQuiz();
