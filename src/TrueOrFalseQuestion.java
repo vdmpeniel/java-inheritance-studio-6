@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TrueOrFalseQuestion extends Question{
+public class TrueOrFalseQuestion extends PredeterminedAnswersQuestion{
     public TrueOrFalseQuestion(String question, Integer questionValue, List<String> possibleAnswers, Object correctAnswer){
         super(question, questionValue, possibleAnswers, correctAnswer);
         this.setQuestionType("True or False");

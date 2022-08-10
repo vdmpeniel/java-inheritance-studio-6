@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.Locale;
 
-public class MultipleChoiceQuestion extends Question{
+public class MultipleChoiceQuestion extends PredeterminedAnswersQuestion{
     public MultipleChoiceQuestion(String question, Integer questionValue, List<String> possibleAnswers, Object correctAnswer){
         super(question, questionValue, possibleAnswers, correctAnswer);
         this.setQuestionType("Multiple Choice");
@@ -16,6 +16,6 @@ public class MultipleChoiceQuestion extends Question{
     @Override
     public boolean validateAnswer(Object answer){
         return super.validateAnswer(answer)
-                && this.getPossibleAnswers().stream().map(ans -> ans.toLowerCase()).toList().contains(answer.toString().toLowerCase());
+            && this.getPossibleAnswers().stream().map(ans -> ans.toLowerCase()).toList().contains(answer.toString().toLowerCase());
     };
 }

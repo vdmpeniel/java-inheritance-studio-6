@@ -5,15 +5,13 @@ public abstract class Question {
     private String questionType;
     private Integer questionValue;
     private String inputInstructions;
-    private List<String> possibleAnswers;
     private Object correctAnswer;
 
 
-    public Question(String question, Integer questionValue, List<String> possibleAnswers, Object correctAnswer){
+    public Question(String question, Integer questionValue, Object correctAnswer){
         this.question = question;
         this.questionValue = questionValue;
         this.inputInstructions = "N/A";
-        this.possibleAnswers = possibleAnswers;
         this.correctAnswer = correctAnswer;
 
     }
@@ -46,13 +44,7 @@ public abstract class Question {
         this.inputInstructions = inputInstructions;
     }
 
-    public List<String> getPossibleAnswers() {
-        return possibleAnswers;
-    }
 
-    public void setPossibleAnswers(List<String> possibleAnswers) {
-        this.possibleAnswers = possibleAnswers;
-    }
 
     public Object getCorrectAnswer(){
         return correctAnswer;
@@ -69,9 +61,7 @@ public abstract class Question {
         System.out.println("-> " + inputInstructions + ":");
     }
 
-    public void showAllPossibleAnswers(){
-        possibleAnswers.forEach((answer) -> System.out.println(answer));
-    }
+
 
     public abstract boolean checkIfAnswerIsCorrect(Object answer);
 

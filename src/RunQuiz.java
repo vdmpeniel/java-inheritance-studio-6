@@ -58,7 +58,6 @@ public class RunQuiz {
 
 
 
-
         String question4CorrectAnswer = "Hola!";
         Question question4 = new ShortAnswerQuestion(
                 "How you say Hello! in Spanish",
@@ -75,14 +74,24 @@ public class RunQuiz {
 
 
 
+        Integer question6CorrectAnswer = 12;
+        Question question6 = new LinearScaleQuestion(
+                "Tell me a nice number between 0 and 25",
+                0,
+                25,
+                50,
+                question6CorrectAnswer
+        );
+
 
 
         List questionList = new ArrayList(){{
-//            add(question1);
-//            add(question2);
-//            add(question3);
-//            add(question4);
+            add(question1);
+            add(question2);
+            add(question3);
+            add(question4);
             add(question5);
+            add(question6);
         }};
         Quiz myQuiz = new Quiz(questionList);
         myQuiz.runQuiz();

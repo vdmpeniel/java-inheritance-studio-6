@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-public class CheckboxQuestion extends Question{
+public class CheckboxQuestion extends PredeterminedAnswersQuestion{
     public CheckboxQuestion(String question, Integer questionValue, List<String> possibleAnswers, Object correctAnswer){
         super(question, questionValue, possibleAnswers, correctAnswer);
         this.setQuestionType("Checkbox");
@@ -29,11 +29,11 @@ public class CheckboxQuestion extends Question{
     @Override
     public boolean validateAnswer(Object answer){
         return super.validateAnswer(answer)
-                && (new ArrayList<>(Arrays.asList(String.valueOf(answer).split(",")))).stream()
-                .allMatch(ans -> this.getPossibleAnswers().stream()
-                            .map(item -> ((String) item).toLowerCase())
-                            .toList().contains(String.valueOf(ans).trim())
-                );
+            && (new ArrayList<>(Arrays.asList(String.valueOf(answer).split(",")))).stream()
+            .allMatch(ans -> this.getPossibleAnswers().stream()
+                        .map(item -> ((String) item).toLowerCase())
+                        .toList().contains(String.valueOf(ans).trim())
+            );
     }
 
 

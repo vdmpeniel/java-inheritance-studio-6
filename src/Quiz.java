@@ -13,7 +13,7 @@ public class Quiz {
     public void runQuiz(){
         for(Question question : quizQuestions){
             question.showQuestion();
-            question.showAllPossibleAnswers();
+            if(question instanceof PredeterminedAnswersQuestion){ ((PredeterminedAnswersQuestion) question).showAllPossibleAnswers(); }
             quizMap.put(question, getInputAnswer(question));
         }
         scanner.close();
